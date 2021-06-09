@@ -8,6 +8,7 @@ import {
   PaginatedResponse,
 } from '../../common/interfaces/pagination.type';
 import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { CommonCodeListDto } from './dto';
 
 @ObjectType()
 export class CommonCodePagination extends PaginatedResponse<CommonCode> {
@@ -59,5 +60,42 @@ export class CommonCodeService {
     const commonCode = await this.commonCodeRepo.findOne(id);
     if (!commonCode) throw new NotFoundException();
     return commonCode;
+  }
+
+  /**
+   * find all for users
+   * @param commonCodeListDto
+   * @returns
+   */
+  async findAll(commonCodeListDto: CommonCodeListDto): Promise<CommonCode[]> {
+    const qb = this.commonCodeRepo
+      .createQueryBuilder('commonCode')
+      .AndWhereLike(
+        'commonCode',
+        'key',
+        commonCodeListDto.key,
+        commonCodeListDto.exclude('key'),
+      )
+      .AndWhereLike(
+        'commonCode',
+        'category',
+        commonCodeListDto.category,
+        commonCodeListDto.exclude('category'),
+      )
+      .AndWhereLike(
+        'commonCode',
+        'value',
+        commonCodeListDto.value,
+        commonCodeListDto.exclude('value'),
+      )
+      .AndWhereLike(
+        'commonCode',
+        'scoreCodeYn',
+        commonCodeListDto.scoreCodeYn,
+        commonCodeListDto.exclude('scoreCodeYn'),
+      )
+      .WhereAndOrder(commonCodeListDto);
+
+    return await qb.getMany();
   }
 }

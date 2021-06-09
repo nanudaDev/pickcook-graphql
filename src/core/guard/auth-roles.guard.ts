@@ -28,8 +28,6 @@ export class PlatformGqlAuthGuard extends AuthGuard('jwt') {
   }
 
   handleRequest(err, user, context: ExecutionContext) {
-    console.log(user);
-    console.log(context);
     if (err || !user) {
       if (process.env.NODE_ENV !== ENVIRONMENT.PRODUCTION) {
         console.log(err, 'err');

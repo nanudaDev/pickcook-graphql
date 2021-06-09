@@ -10,8 +10,8 @@ import { Default } from '../../../common/decorators/default.decorator';
 import { COMMON_CODE_CATEGORY } from '../../../shared/common-code-category.type';
 
 @ArgsType()
-export class AdminCommonCodeListDto
-  extends BaseDto<AdminCommonCodeListDto>
+export class CommonCodeListDto
+  extends BaseDto<CommonCodeListDto>
   implements Partial<CommonCode>
 {
   @ApiPropertyOptional()
