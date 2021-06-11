@@ -10,6 +10,8 @@ import { FaqModule } from './modules/faq/faq.module';
 import { CommonCodeModule } from './modules/common-code/common-code.module';
 import { getMetadataArgsStorage } from 'typeorm';
 import { AuthModule } from './modules/auth/auth.module';
+import { ProformaConsultResultV3Module } from './modules/proforma-consult-result-v3/proforma-consult-result-v3.module';
+import { ConsultResultV3Module } from './modules/consult-result-v3/consult-result-v3.module';
 const env = process.env;
 @Module({
   imports: [
@@ -47,6 +49,8 @@ const env = process.env;
     AuthModule,
     FaqModule,
     CommonCodeModule,
+    ConsultResultV3Module,
+    ProformaConsultResultV3Module,
   ],
   controllers: [AppController],
   providers: [AppService],
