@@ -65,7 +65,7 @@ export class ConsultResultV3 extends BaseModel<ConsultResultV3> {
   })
   fnbOwnerStatus: FNB_OWNER;
 
-  @Field(() => Int, { nullable: false })
+  @Field(() => Int, { nullable: true })
   @Column({
     name: 'admin_id',
     type: 'int',

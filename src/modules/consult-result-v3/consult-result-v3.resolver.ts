@@ -24,7 +24,6 @@ export class ConsultResultV3Resolver {
     @Args('createConsultDto') consultCreateDto: ConsultResultV3CreateDto,
     @GqlRequest() req: Request,
   ): Promise<ConsultResultV3> {
-    // console.log(req);
     return await this.consultService.createConsult(consultCreateDto, req);
   }
 }
