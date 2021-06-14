@@ -3,13 +3,14 @@ import { Expose } from 'class-transformer';
 import { BaseDto } from '../../../core/base.dto';
 import { CommonCode } from '../common-code.model';
 import { IsEnum, IsOptional } from 'class-validator';
-import { ArgsType, Field } from '@nestjs/graphql';
+import { ArgsType, Field, InputType } from '@nestjs/graphql';
 import { YN } from '../../../common/interfaces/del-yn.type';
 import { ORDER_BY_VALUE } from '../../../common/interfaces/order-by-value.type';
 import { Default } from '../../../common/decorators/default.decorator';
 import { COMMON_CODE_CATEGORY } from '../../../shared/common-code-category.type';
 
 @ArgsType()
+@InputType()
 export class CommonCodeListDto
   extends BaseDto<CommonCodeListDto>
   implements Partial<CommonCode>

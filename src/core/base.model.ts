@@ -1,4 +1,4 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ObjectType, Int } from '@nestjs/graphql';
 import {
   BaseEntity as TypeOrmBaseEntity,
   CreateDateColumn,
@@ -59,7 +59,7 @@ export class BaseModel<Model> extends TypeOrmBaseEntity {
     return this;
   }
 
-  @Field()
+  @Field(() => Int, { nullable: false })
   @PrimaryGeneratedColumn({
     type: 'int',
     unsigned: true,

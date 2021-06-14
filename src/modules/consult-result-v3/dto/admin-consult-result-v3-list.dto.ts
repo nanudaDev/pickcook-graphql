@@ -1,4 +1,4 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { ArgsType, Field, InputType } from '@nestjs/graphql';
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { IsEnum, IsOptional, IsPhoneNumber } from 'class-validator';
 import { BaseDto } from '../../../core/base.dto';
@@ -9,6 +9,7 @@ import { ORDER_BY_VALUE } from '../../../common/interfaces/order-by-value.type';
 import { Default } from '../../../common/decorators/default.decorator';
 
 @InputType()
+@ArgsType()
 export class AdminConsultResultV3ListDto
   extends BaseDto<AdminConsultResultV3ListDto>
   implements Partial<ConsultResultV3>
