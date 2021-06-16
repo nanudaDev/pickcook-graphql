@@ -29,7 +29,7 @@ $ npm run start:prod
 
 - 크롬에서 GraphQL playground 플러그인 설치 후 진행
 
-## GraphQL Conventions
+## GraphQL Resolver Conventions
 
 ```bash
 # Admin Resolver
@@ -41,7 +41,33 @@ $ npm run start:prod
     - findallCommonCode()
 ```
 
-## Stay in touch
+## Scaffolding
+
+```bash
+# Basic structure
+  - src
+    - shared
+      - common code enum
+    - core
+    - common
+    - config
+    - locales
+      - kr
+    - modules
+
+# Module folder structure (src/modules)
+  - {camelCaseModelName}
+    - dto
+      - admin-{modelName}-{requestMethod}.dto.ts
+      - index.ts
+    - {modelName}.model.ts
+    - admin-{modelName}.resolver.ts
+    - {modelName}.resolver.ts
+    - {modelName}.service.ts
+
+```
+
+## Footnote
 
 - Author - [이상준] illumeweb@gmail.com
 - Website - [https://www.pickcook.kr](https://www.pickcook.kr)
