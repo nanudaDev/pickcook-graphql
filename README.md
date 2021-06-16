@@ -29,6 +29,18 @@ $ npm run start:prod
 
 - 크롬에서 GraphQL playground 플러그인 설치 후 진행
 
+## GraphQL Conventions
+
+```bash
+# Admin Resolver
+ - {methodName}{entityName}ForAdmin
+    - findAllCommonCodeForAdmin()
+
+# Common Resolver
+ - {methodName}{entityName}
+    - findallCommonCode()
+```
+
 ## Stay in touch
 
 - Author - [이상준] illumeweb@gmail.com
